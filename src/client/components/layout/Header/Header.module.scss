@@ -1,0 +1,153 @@
+.header {
+  align-items: center;
+  background: var(--color-lighter);
+  border-bottom: 1px solid var(--color-dark);
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  grid-area: header;
+  padding: 0 20px;
+}
+
+.icon,
+.sidebarIcon {
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  fill: var(--color-darker);
+  transition: fill .2s, background .2s;
+
+  &:hover,
+  &:focus {
+    fill: var(--color-primary);
+  }
+
+  &:active {
+    background: var(--color-accent-light);
+    fill: var(--color-accent);
+  }
+}
+
+.icon {
+  height: 24px;
+  margin-left: 12px;
+  min-width: 24px;
+  padding: 11px;
+  width: 24px;
+
+  &.isActive {
+    fill: var(--color-accent);
+  }
+}
+
+.sidebarIcon {
+  height: 28px;
+  min-width: 28px;
+  padding: 9px;
+  width: 28px;
+}
+
+.title {
+  color: var(--color-darker);
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 32px 0 16px;
+}
+
+.titleHighlight {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.search {
+  margin: 0 auto;
+}
+
+.iconsBox {
+  display: flex;
+}
+
+.spinnerWrapper {
+  position: relative;
+}
+
+.spinner {
+  height: 52px;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 52px;
+
+  @keyframes impulse {
+
+    0% {
+      opacity: 0;
+      transform: scale(.25);
+    }
+    
+    50% {
+      opacity: 1;
+      transform: scale(.75);
+    }
+    
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
+
+  &:before,
+  &:after {
+    border-color: var(--color-accent-light);
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 2px;
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    height: inherit;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: inherit;
+  }
+  
+  &:before {
+    animation: impulse 3s linear 0s infinite;
+  }
+  
+  &:after {
+    animation: impulse 3s linear 1.5s infinite;
+    opacity: 0;
+  }
+}
+
+
+@media (max-width: 776px) {
+
+  .header {
+    flex-wrap: wrap;
+    padding: 16px;
+  }
+
+  .search {
+    align-self: flex-end;
+    margin-top: 12px;
+    order: 1;
+  }
+
+  .iconsBox {
+    margin-left: auto;
+  }
+
+  .icon {
+    margin-left: 0;
+  }
+
+  .title {
+    margin-left: 12px;
+    margin-right: 0;
+  }
+}

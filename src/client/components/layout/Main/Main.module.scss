@@ -1,0 +1,38 @@
+.main {
+  background: var(--color-light);
+  box-sizing: border-box;
+  display: block;
+  grid-area: main;
+  min-height: inherit;
+  padding: 32px;
+}
+
+.wrapper {
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Route Transition */
+.routeEnter {
+  opacity: .01;
+  transform: scale(.95);
+
+  &.routeEnterActive {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: top;
+    transition: transform .25s ease, opacity .25s ease;
+  }
+}
+
+.routeExit {
+  position: absolute;
+  visibility: hidden;
+}
+
+@media (max-width: 776px) {
+
+  .main {
+    padding: 24px 16px;
+  }
+}

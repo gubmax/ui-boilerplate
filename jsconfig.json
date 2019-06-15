@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es2017",
+      "allowSyntheticDefaultImports": false,
+      "baseUrl": "./",
+      "paths": {
+        "@images/*": ["src/static/images/*"],
+        "@client/*": ["src/client/*"],
+        "@elements/*": ["src/client/components/elements/*"],
+        "@pages/*": ["src/client/components/pages/*"],
+        "@actions/*": ["src/client/redux/actions/*"]
+      }
+    },
+    "exclude": ["node_modules", "dist"]
+  }

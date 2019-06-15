@@ -1,0 +1,91 @@
+.base {
+  color: var(--color-primary);
+  font-size: 14px;
+  min-height: 100vh;
+  -webkit-tap-highlight-color: transparent;
+  display: grid;
+  grid-template-areas: "header header""nav main";
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 56px auto;
+
+  &.lightTheme {
+    --color-lighter: rgb(255, 255, 255);
+    --color-light: rgb(245, 245, 245);
+    --color-dark: rgb(230, 230, 230);
+    --color-darker: rgb(118, 118, 118);
+    --color-secondary: rgb(118, 118, 118);
+    --color-primary: rgb(64, 64, 64);
+    --color-accent: rgb(63, 81, 181);
+    --color-border: rgb(190, 190, 190);
+    --rgb-accent: 63, 81, 181;
+    --rgb-light: 242, 242, 242;
+    --rgb-shadow: 18, 24, 28;
+    --rgba-shadow: rgba(var(--rgb-shadow), .12);
+  }
+
+  &.darkTheme {
+    --color-lighter: rgb(40, 45, 64);
+    --color-light: rgb(27, 30, 45);
+    --color-dark: rgb(30, 39, 45);
+    --color-darker: rgb(176, 176, 177);
+    --color-secondary: rgb(64, 64, 64);
+    --color-primary: rgb(224, 224, 224);
+    --color-accent: rgb(92, 107, 192);
+    --color-border: rgb(25, 28, 41);
+    --rgb-accent: 92, 107, 192;
+    --rgb-light: 27, 30, 45;
+    --rgb-shadow: 18, 24, 28;
+    --rgba-shadow: rgba(var(--rgb-shadow), .4);
+  }
+
+  --color-accent-light: rgba(var(--rgb-accent), .2);
+}
+
+/* Sidebar Transition */
+.sidebarEnter {
+  opacity: 0;
+
+  &.sidebarEnterActive {
+    opacity: 1;
+    transition: opacity .25s;
+  }
+
+  & > nav {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  &.sidebarEnterActive > nav {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform .25s ease, opacity .25s linear;
+  }
+}
+
+.sidebarExit {
+  opacity: 1;
+
+  &.sidebarExitActive {
+    opacity: 0;
+    transition: opacity .2s;
+  }
+
+  & > nav {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &.sidebarExitActive > nav {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: transform .2s ease, opacity .2s linear;
+  }
+}
+
+@media (max-width: 776px) {
+
+  .base {
+    grid-template-areas: "header header""main main";
+    grid-template-rows: auto;
+  }
+}

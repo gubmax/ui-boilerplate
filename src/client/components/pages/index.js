@@ -1,0 +1,5 @@
+export { default as ProjectsPage } from './ProjectsPage'
+export { default as CalendarPage } from './CalendarPage'
+export { default as ReviewPage } from './ReviewPage'
+export { default as InfoPage } from './InfoPage'
+export { default as SettingsPage } from './SettingsPage'
